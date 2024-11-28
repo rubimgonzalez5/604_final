@@ -3,17 +3,21 @@ title: "About Me"
 about:
   id: me
   template: broadside
-  image: img/profile.png
+  image: img/pfp.jpeg
 ---
 
-:::{#me}
-
+::: {#me}
 ## Goals
+
+Goals
 
 ## Education
 
+Education
+
 ## Experience
 
+Experience
 :::
 
 Thanks for checking out my web site!

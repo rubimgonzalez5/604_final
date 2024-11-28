@@ -2,8 +2,13 @@
 title: "Projects"
 ---
 
-## Project 1
+## Resume (old)
 
-## Project 2
+<a href="files/ResumeJan24.pdf"target="_blank">View my Resume</a>
+
+
+## Worry and Climate Change
+
+[Research](604 Final/604FinalProject.html)
 
 ## Project 3
