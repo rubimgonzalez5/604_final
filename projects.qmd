@@ -2,13 +2,10 @@
 title: "Projects"
 ---
 
-## Resume (old)
-
-<a href="files/ResumeJan24.pdf"target="_blank">View my Resume</a>
-
-
 ## Worry and Climate Change
 
-[Research](604 Final/604FinalProject.html)
+[Research](files/dashboard.html)
 
-## Project 3
+## Social Networks
+<a href = "files/DACSS 695N Final.pdf"
+target="_blank">Open Findings</a>
