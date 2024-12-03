@@ -2,7 +2,7 @@
 title: "Projects"
 ---
 
-## Worry and Climate Change
+## 604 Assignment 4 - Simple Dashboard
 
 [Research](files/assignment4.html)
 
