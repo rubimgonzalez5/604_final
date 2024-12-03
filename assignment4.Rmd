@@ -1,5 +1,5 @@
 ---
-title: "Untitled"
+title: "Assignment 4"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
@@ -200,7 +200,7 @@ per_or_bar <- plot_ly(data = personal,
                   type = "bar",
                   text = ~ paste(OR), 
                   textposition = "outside",
-                  hovertext = ~paste(Harm, "\n", "Odds-Ratio = ", OR),
+                  hovertext = ~paste(Harm, "\n", "Odds-Ratio = ", OR, "%"),
                   hoverinfo = "text",
                   marker = list(color = "lightblue")) %>% 
   layout(title = "Odds-ratio for Predictors of Climate Change Worry",
