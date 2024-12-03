@@ -1,0 +1,224 @@
+---
+title: "Untitled"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+
+library(tidyverse)
+library(haven)
+library(dplyr)
+library(ggplot2)
+library(pollster)
+library(knitr)
+library(corrplot)
+library(Hmisc)
+library(nnet)
+library(stargazer)
+library(MASS)
+library(broom)
+library(plotly)
+
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Odds-ratio for Predictors of Climate Change Worry
+
+```{r}
+# uploading data
+ccamData <- read_sav("CCAMData2023.sav")
+
+myData <- ccamData %>%
+  dplyr::select(wave, year, happening, cause_recoded, worry, harm_personally, harm_US, harm_future_gen, harm_plants_animals, when_harm_US,
+                region9, generation, educ_category) %>% 
+  rename("education" = "educ_category") 
+
+# subsetting with data for the last available wave, Oct 2023
+myData <- subset(myData, wave == 29)
+
+# making variables numeric or factors
+myData$wave <- as.numeric(myData$wave)
+myData$happening <- as.factor(myData$happening)
+myData$cause_recoded <- as.factor(myData$cause_recoded)
+myData$generation <- as.factor(myData$generation)
+myData$education <- as.factor(myData$education)
+myData$worry <- as.numeric(myData$worry)
+myData$harm_personally <- as.factor(myData$harm_personally)
+myData$harm_US <- as.factor(myData$harm_US)
+myData$harm_future_gen <- as.factor(myData$harm_future_gen)
+myData$harm_plants_animals <- as.factor(myData$harm_plants_animals)
+myData$when_harm_US <- as.factor(myData$when_harm_US)
+myData$region9 <- as.factor(myData$region9)
+
+# recoding variables
+myData <- myData %>%
+  mutate(#year = recode(year, "13" = "2021"),
+         
+         wave = recode(wave, "29" = "Oct 2023"),
+         
+         cause_recoded = recode(cause_recoded, "3" = "CC_not_happening", "4" = "Nat_changes", "5" = "Human_act_and_nat_changes",
+                                "6" = "human_act"),
+         
+         happening = recode(happening, "1" = "No", "3" = "Yes"),
+         
+         harm_personally = recode(harm_personally, "1" = "Not at all", "2" = "Only a little", "3" = "A moderate amount", "4" = "A great deal"),
+         
+         harm_US = recode(harm_US, "1" = "Not at all", "2" = "Only a little", "3" = "A moderate amount", "4" = "A great deal"),
+         
+         harm_future_gen = recode(harm_future_gen, "1" = "Not at all", "2" = "Only a little", "3" = "A moderate amount", "4" = "A great deal"),
+         
+         harm_plants_animals = recode(harm_plants_animals, "1" = "Not at all", "2" = "Only a little", "3" = "A moderate amount",
+                                      "4" = "A great deal"),
+         
+         when_harm_US = recode(when_harm_US, "1" = "Never", "2" = "one_hun_years", "3" = "fifty_years", "4" = "twn_five_years",
+                               "5" = "ten_years", "6" = "right_now"),
+         
+         region9 = recode(region9, "1" = "New England", "2" = " Mid_Atlantic", "3" = "EN_Central", "4" = "WN_Central", "5" = "S_Atlantic",
+                          "6" = "ES_Central", "7" = "WS_Central", "8" = "Mountain", "9" = "Pacific"),
+
+         
+         generation = recode(generation, "1" = "GenZ", "2" = "Millennials", "3" = "GenerationX", "4" = "BabyBoomers", "5" = "Silent",
+                             "6" = "Greatest"),
+         
+         education = recode(education, "1" = "lessHighSchool", "2" = "highSchool", "3" = "someCollege", "4" = "bachelorDegreeUp"))
+
+# getting rid of data where people refused to answer (-1) or said they "don't know" (0)
+myData = filter(myData, !(cause_recoded %in% c("-1", "1", "2")))
+myData = filter(myData, worry != "-1")
+myData = filter(myData, !(happening %in% c("-1", "2"))) # 2 is "don't know"
+myData = filter(myData, !(harm_personally %in% c("-1", "0")))
+myData = filter(myData, !(harm_US %in% c("-1", "0")))
+myData = filter(myData, !(harm_future_gen %in% c("-1", "0")))
+myData = filter(myData, !(harm_plants_animals %in% c("-1", "0")))
+myData = filter(myData, generation != "Greatest") # get rid of Greatest because they only had 1 respondent in 2021
+myData = filter(myData, when_harm_US != "-1")
+
+# creating the reference variable now
+myData$happening <- relevel(myData$happening, ref = "No")
+myData$education <- relevel(myData$education, ref = "lessHighSchool")
+myData$cause_recoded <- relevel(myData$cause_recoded, ref = "Human_act_and_nat_changes")
+myData$harm_personally <- relevel(myData$harm_personally, ref = "Not at all")
+myData$harm_US <- relevel(myData$harm_US, ref = "Not at all")
+myData$harm_future_gen <- relevel(myData$harm_future_gen, ref = "Not at all")
+myData$harm_plants_animals <- relevel(myData$harm_plants_animals, ref = "Not at all")
+myData$when_harm_US <- relevel(myData$when_harm_US, ref = "Never")
+
+
+```
+
+```{r}
+sub_hap <- myData
+
+# only getting people you believe climate change is happening
+sub_hap <- filter(sub_hap, happening != "No")
+
+```
+
+```{r}
+
+sub_cause_hap <- sub_hap
+
+sub_cause_hap <- filter(sub_cause_hap, !(cause_recoded %in% c("CC_not_happening", "Nat_changes")))
+
+```
+
+
+```{r}
+
+# testing my hypothesis with the ordinal logit regression 
+fitData3 <- sub_cause_hap %>%
+  mutate(worry = recode(worry, "1" = "Not at all worried", "2" = "Not very worried", "3" = "Somewhat worried", "4" = "Very worried"))
+
+fitData3$worry <- as.factor(fitData3$worry)
+
+```
+
+
+```{r}
+
+# Ordinal logit model for all models
+
+fitwM3 <- polr(worry ~ happening + cause_recoded + harm_personally + harm_US + harm_future_gen + harm_plants_animals +
+                 when_harm_US + generation + education, data = fitData3, Hess = T)
+
+
+```
+
+```{r}
+# Getting odds-ratio for model 3 
+
+coeff <- round(exp(coef(fitwM3)), 3)
+
+sig_var <- grep("personally|when", names(coeff), value = T)
+
+sig_coeff <- coeff[sig_var]
+
+coeff_df <- data.frame(variable = sig_var,
+                     or = sig_coeff)
+
+```
+
+```{r}
+coeff_wdf <- coeff_df %>% 
+  pivot_wider(names_from = variable, values_from = or)
+#coeff_wdf
+
+personal <- coeff_wdf %>% 
+  select(contains('harm_personally')) %>% 
+  rename('Only a little' = 'harm_personallyOnly a little', "A moderate amount" = 'harm_personallyA moderate amount',
+         'A great deal' = 'harm_personallyA great deal') %>% 
+  pivot_longer(cols = c('Only a little', 'A moderate amount', 'A great deal'),
+               names_to = 'Harm',
+               values_to = 'OR')
+#personal
+
+when <- coeff_wdf %>% 
+  select(contains('when_harm_US')) %>% 
+  rename('Hundred years' = when_harm_USone_hun_years, 'Fifty years' = when_harm_USfifty_years, 'Twenty-five years' = when_harm_UStwn_five_years,
+         'Ten years' = when_harm_USten_years, 'Right Now' = when_harm_USright_now) %>% 
+  pivot_longer(cols = c('Hundred years', 'Fifty years', 'Twenty-five years', 'Ten years', 'Right Now'),
+               names_to = 'Timing_of_CC_Harm',
+               values_to = 'OR')
+#when
+
+when$Timing_of_CC_Harm <- factor(when$Timing_of_CC_Harm,
+                   levels = c("Right Now", "Ten years", "Twenty-five years", "Fifty years", "Hundred years"))
+
+
+```
+
+```{r}
+per_or_bar <- plot_ly(data = personal,
+                  x = ~ Harm,
+                  y = ~ OR,
+                  type = "bar",
+                  text = ~ paste(OR), 
+                  textposition = "outside",
+                  hovertext = ~paste(Harm, "\n", "Odds-Ratio = ", OR),
+                  hoverinfo = "text",
+                  marker = list(color = "lightblue")) %>% 
+  layout(title = "Odds-ratio for Predictors of Climate Change Worry",
+         xaxis = list(title = "Harm Level"),
+         yaxis = list(title = "Odds Ratio"))
+
+per_or_bar
+
+```
+
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Analysis
+Based on the OLR, each level of personal harm was significant as a predictor of worry. As the harm level increased, the more significant it was as a predictor for worry. Risk of worrying about climate change was about 27.29% higher for respondents who believe climate change will harm them a great deal personally than those who said ‘not at all.’
+
+### Data Collection
+The data is from the Yale Program on [Climate Change Communication](https://climatecommunication.yale.edu/visualizations-data/americans-climate-views/). Originally, the data set had 33,265  observations as the nationally representative surveys were conducted once in 2008 and 2023, and then twice a year from 2010 to 2023. All questionnaires were self-administered by respondents in a web-based environment. Samples were drawn from the Ipsos (formerly GfK) KnowledgePanel, an online panel of members drawn using probability sampling methods. Prospective members were recruited using a combination of random digit dial and address-based sampling techniques that cover virtually all (non-institutional) resident phone numbers and addresses in the United States. Those contacted who chose to join the panel but did not have access to the Internet were loaned computers and given Internet access so they could participate. The sample therefore includes a representative cross-section of American adults – irrespective of whether they had Internet access, used only a cell phone, etc.
+
+
