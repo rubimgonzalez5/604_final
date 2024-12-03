@@ -4,7 +4,7 @@ title: "Projects"
 
 ## 604 Assignment 4 - Simple Dashboard
 
-[Research](files/assignment4.html)
+[Dashboard](files/assignment4.html)
 
 ## Social Networks
 <a href = "files/DACSS 695N Final.pdf"

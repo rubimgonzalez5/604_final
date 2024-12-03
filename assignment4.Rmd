@@ -26,8 +26,7 @@ library(plotly)
 
 ```
 
-Column {data-width=650}
------------------------------------------------------------------------
+## Column {data-width="650"}
 
 ### Odds-ratio for Predictors of Climate Change Worry
 
@@ -110,7 +109,6 @@ myData$harm_future_gen <- relevel(myData$harm_future_gen, ref = "Not at all")
 myData$harm_plants_animals <- relevel(myData$harm_plants_animals, ref = "Not at all")
 myData$when_harm_US <- relevel(myData$when_harm_US, ref = "Never")
 
-
 ```
 
 ```{r}
@@ -129,7 +127,6 @@ sub_cause_hap <- filter(sub_cause_hap, !(cause_recoded %in% c("CC_not_happening"
 
 ```
 
-
 ```{r}
 
 # testing my hypothesis with the ordinal logit regression 
@@ -139,7 +136,6 @@ fitData3 <- sub_cause_hap %>%
 fitData3$worry <- as.factor(fitData3$worry)
 
 ```
-
 
 ```{r}
 
@@ -212,14 +208,12 @@ per_or_bar
 
 ```
 
-
-Column {data-width=350}
------------------------------------------------------------------------
+## Column {data-width="350"}
 
 ### Analysis
+
 Based on the OLR, each level of personal harm was significant as a predictor of worry. As the harm level increased, the more significant it was as a predictor for worry. Risk of worrying about climate change was about 27.29% higher for respondents who believe climate change will harm them a great deal personally than those who said ‘not at all.’
 
 ### Data Collection
-The data is from the Yale Program on [Climate Change Communication](https://climatecommunication.yale.edu/visualizations-data/americans-climate-views/). Originally, the data set had 33,265  observations as the nationally representative surveys were conducted once in 2008 and 2023, and then twice a year from 2010 to 2023. All questionnaires were self-administered by respondents in a web-based environment. Samples were drawn from the Ipsos (formerly GfK) KnowledgePanel, an online panel of members drawn using probability sampling methods. Prospective members were recruited using a combination of random digit dial and address-based sampling techniques that cover virtually all (non-institutional) resident phone numbers and addresses in the United States. Those contacted who chose to join the panel but did not have access to the Internet were loaned computers and given Internet access so they could participate. The sample therefore includes a representative cross-section of American adults – irrespective of whether they had Internet access, used only a cell phone, etc.
 
-
+The data is from the Yale Program on [Climate Change Communication](https://climatecommunication.yale.edu/visualizations-data/americans-climate-views/). Originally, the data set had 33,265 observations as the nationally representative surveys were conducted once in 2008 and 2023, and then twice a year from 2010 to 2023. All questionnaires were self-administered by respondents in a web-based environment. Samples were drawn from the Ipsos (formerly GfK) KnowledgePanel, an online panel of members drawn using probability sampling methods. Prospective members were recruited using a combination of random digit dial and address-based sampling techniques that cover virtually all (non-institutional) resident phone numbers and addresses in the United States. Those contacted who chose to join the panel but did not have access to the Internet were loaned computers and given Internet access so they could participate. The sample therefore includes a representative cross-section of American adults – irrespective of whether they had Internet access, used only a cell phone, etc.
