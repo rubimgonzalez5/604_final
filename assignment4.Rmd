@@ -7,6 +7,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
+
 library(flexdashboard)
 
 library(tidyverse)
@@ -153,7 +154,7 @@ fitwM3 <- polr(worry ~ happening + cause_recoded + harm_personally + harm_US + h
 ```{r}
 # Getting odds-ratio for model 3 
 
-coeff <- round(exp(coef(fitwM3)), 3)
+coeff <- round(exp(coef(fitwM3)), 2)
 
 sig_var <- grep("personally|when", names(coeff), value = T)
 
