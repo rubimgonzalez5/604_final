@@ -164,7 +164,6 @@ coeff_df <- data.frame(variable = sig_var,
 ```{r}
 coeff_wdf <- coeff_df %>% 
   pivot_wider(names_from = variable, values_from = or)
-#coeff_wdf
 
 personal <- coeff_wdf %>% 
   select(contains('harm_personally')) %>% 
@@ -173,7 +172,6 @@ personal <- coeff_wdf %>%
   pivot_longer(cols = c('Only a little', 'A moderate amount', 'A great deal'),
                names_to = 'Harm',
                values_to = 'OR')
-#personal
 
 when <- coeff_wdf %>% 
   select(contains('when_harm_US')) %>% 
@@ -182,7 +180,6 @@ when <- coeff_wdf %>%
   pivot_longer(cols = c('Hundred years', 'Fifty years', 'Twenty-five years', 'Ten years', 'Right Now'),
                names_to = 'Timing_of_CC_Harm',
                values_to = 'OR')
-#when
 
 when$Timing_of_CC_Harm <- factor(when$Timing_of_CC_Harm,
                    levels = c("Right Now", "Ten years", "Twenty-five years", "Fifty years", "Hundred years"))
