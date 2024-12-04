@@ -16,8 +16,8 @@ I am currently working as a research assistant at a small non-profit called [Dat
 I am currently a Master's student studying Data Analytics and Computational Social Science at the University of Massachusetts-Amherst. I started attending in the Summer of 2023 and I plan to graduate in the Winter of 2024. In the Spring of 2022, I earned my Bachelor of Art from the University of California, Riverside in Sociology. Before that, I earned my Associate of Arts Degree in Sociology from Riverside City College in the Fall of 2020.
 
 
-## Check out my Resume/CV
-<a href = "files/ResumeJan24.pdf"
+## Check out my Resume!
+<a href = "files/ResumeDec24.pdf"
 target="_blank">Open Resume</a>
 
 :::

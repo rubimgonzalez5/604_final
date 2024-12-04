@@ -6,6 +6,14 @@ title: "Projects"
 
 [Dashboard](files/assignment4.html)
 
-## Social Networks
+## Will Ego's Level of Closeness and the Frequency of Speaking with their Alters Influence their Decision to Vote?
 <a href = "files/DACSS 695N Final.pdf"
+target="_blank">Open Findings</a>
+
+## Machine Learning: Are College Students Likely to Dropout or Graduate?
+<a href = "files/finalproject.pdf"
+target="_blank">Open Findings</a>
+
+## Why are some individuals more prone to worry about climate change than others? Based on Demographics
+<a href = "files/603 Final Project Poster.pdf"
 target="_blank">Open Findings</a>
