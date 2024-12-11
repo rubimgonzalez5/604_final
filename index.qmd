@@ -9,17 +9,16 @@ about:
 ::: {#me}
 ## Current Work
 
-I am currently working as a research assistant at a small non-profit called [Data for Social Good (DfSG)](https://dataforsocialgood.org/). We work with other community based organizations that prioritize certain areas in California to help create surveys and collect data on the residents' opinions and ideas. As a research assistant, I gather information on the demographics of the area as well as help with the analysis after the survey data is collected. Our goal at DfSG is to bring to light the residents' priorities, so they can experience real change either through policy or their representatives. 
+I am currently working as a research assistant at a small non-profit called [Data for Social Good (DfSG)](https://dataforsocialgood.org/). We work with other community based organizations that prioritize certain areas in California to help create surveys and collect data on the residents' opinions and ideas. As a research assistant, I gather information on the demographics of the area as well as help with the analysis after the survey data is collected. Our goal at DfSG is to bring to light the residents' priorities, so they can experience real change either through policy or their representatives.
 
 ## Education
 
 I am currently a Master's student studying Data Analytics and Computational Social Science at the University of Massachusetts-Amherst. I started attending in the Summer of 2023 and I plan to graduate in the Winter of 2024. In the Spring of 2022, I earned my Bachelor of Art from the University of California, Riverside in Sociology. Before that, I earned my Associate of Arts Degree in Sociology from Riverside City College in the Fall of 2020.
 
-
 ## Check out my Resume!
+
 <a href = "files/ResumeDec24.pdf"
 target="_blank">Open Resume</a>
-
 :::
 
 Thanks for checking out my web site!
