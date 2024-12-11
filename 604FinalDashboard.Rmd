@@ -216,15 +216,15 @@ The data is from the Yale Program on [Climate Change Communication](https://clim
 * Control variables: happening, caused by human activities, generation, and education.
 
 
-The model I used was Ordinal Logistic Regression (OLR) since all of my important variables are ordered categorical variables. OLR is a statistical method that can predict the likelihood of an ordered categorical outcome (from low to high or not at all worried to very worried) based on independent variables (the level of harm to each groups and when climate change will harm) (Cheng Hua, 2021). We also added the control variables to make sure any changes that are in the results are because of the variables that are being tested (the level of harm to each groups) and not something else (like education).
+The model I used was Ordinal Logistic Regression (OLR) since all of my important variables are ordered categorical variables. OLR is a statistical method that can predict the likelihood of an ordered categorical outcome (like low, medium, high) based on independent variables (Cheng Hua, 2021). We also added the control variables to make sure any changes that are in the results are because of the variables that are being tested (the level of harm to each groups) and not something else (like education).
 
 ### Previous Research
-Unfortunately, there is little to no research on perceived harm level for different groups or the belief of when climate change will start harming and how they affect worry. One study that pushed me to the idea to study harm level between different groups was one where they found people worried about their children facing the consequences of climate change but not themselves (Threadgold, 2012). I wanted to see if that held up with perceived harm levels for different groups (personal, US, future generations, and plants and animals). In regards of timing, there is a report that found that 39% of American respondents believed they were being affected by climate change right now  (Narawad and Julian Wettengel, 2024). Thus, I decided to investigate the association of timing with worry as well.
+Unfortunately, there is little to no research on perceived harm level for different groups or the belief of when climate change will start harming and how they affect worry. A research finding that inspired me to look into harm level for different groups was people worrying about their children facing the consequences of climate change but not themselves (Threadgold, 2012). I wanted to see if that held up with perceived harm levels for different groups (personal, US, future generations, and plants and animals). In regards of timing, there is a report that found that 39% of American respondents believed they were being affected by climate change right now  (Narawad and Julian Wettengel, 2024). Thus, I decided to investigate the association of timing with worry as well.
 
-Last December, I researched the same question: 'Why are some Americans more prone to worry about climate change?' with the same survey but from 2022. However, I was focusing on demographics (race, gender, and education) rather than perceived potential harm or the believed timing of when climate change will harm people in the US. In regards to education, I found Americans with a Bachelor's or higher were more likely to worry about climate change. For race, Black respondents were less likely to worry. Lastly, there was no difference in worry for men and women.
+Last December, I researched the same question: 'Why are some Americans more prone to worry about climate change?' with the same survey but from 2022. However, I was focusing on demographics rather than perceived potential harm or the believed timing of when climate change will harm people in the US. In regards to education, I found Americans with a Bachelor's or higher were more likely to worry about climate change. For race, Black respondents were less likely to worry. Lastly, there was no difference in worry for men and women.
 
 # Visualization of Worry and Harms
-Column {data-width=650}
+Column {data-width=700}
 -----------------------------------------------------------------------
 ### Worry About Climate Change
 
@@ -302,7 +302,7 @@ p2
 
 ```
 
-Column {data-width=350}
+Column {data-width=300}
 -----------------------------------------------------------------------
 
 ### Explanation
@@ -431,7 +431,7 @@ The belief of harm level for people in the US, future generations, as well as pl
 
 # Findings
 
-Column {data-width=600}
+Column {data-width=700}
 -----------------------------------------------------------------------
 ### Probability for Personal Harm and Worry
 
@@ -555,7 +555,7 @@ p_when_plot <- plot_ly(prob_wh, x = ~when_harm_US, y = ~Probability, color = ~Wo
                                           "Probability of Worry Level:", Probability, "%"),
                        hoverinfo = "text",
                        colors = c("#FDD49E", "#FC8D59", "#E34A33", "#B30000")) %>% 
-  layout(title = "Probability of Worry Level by the Belief of when Climate Change will Harm", 
+  layout(title = "Probability of Worry Level by the Belief of When Climate Change will Harm", 
          xaxis = list(title = "Timing of When Climate Change will Harm the US"),
          yaxis = list(title = "Probability of Worry Level (%)"), 
          legend = list(title = list(text = 'Worry Levels')))
@@ -564,7 +564,7 @@ p_when_plot
 
 ```
 
-Column {data-width=400}
+Column {data-width=300}
 -----------------------------------------------------------------------
 
 ### Findings 
