@@ -182,17 +182,12 @@ fitwM3 <- polr(worry ~ happening + cause_recoded + harm_personally + harm_US + h
 
 ## Column {data-width=550}
 
+### Hour Glass of Climate Change (Adobe Stock)
+```{r picture, echo = F, out.width = '50%'}
+knitr::include_graphics("cc.jpg")
+```
+
 ### Intro of Topic
-
-**What is Climate Change?**
-
-According to the UN, climate change refers to "long-term shifts in temperatures and weather patterns" (5). Human activities are speeding up these shifts, especially with greenhouse gases. However, scientists warn the impact is more than just the change in weather. The Earth is a delicate system, connected to everything, and since the climate is dramatically changing, we now have to face the consequences of: intense droughts / water scarcity, rising sea levels, melting polar ice caps, catastrophic natural disasters, declining natural habits, etc. (5).
-
-In turn, this affects people's health, ability to grow food, housing, safety, and work (5). 
-
-**Worry of Climate Change**
-
-The glaciers are melting, the seas are rising, and the weather is becoming more extreme, but the harms of climate change are a lot closer to home for Americans than some may think. The climate change has been a topic since the 1800s, however, concern has only intensified since the 1950s (2). The topic has become another area of worry for many. A 2023 Yale research study found that 72% of Americans believe climate change is happening and 64% of Americans are worried about climate change in some type of capacity (6). 
 
 **What did I study?**
 
@@ -221,10 +216,10 @@ The data is from the Yale Program on [Climate Change Communication](https://clim
 * Control variables: happening, caused by human activities, generation, and education.
 
 
-The model I used was Ordinal Logistic Regression (OLR) since all of my important variables are ordered categorical variables. OLR is a statistical method that can predict the likelihood of an ordered categorical outcome (from low to high or not at all worried to very worried) based on independent variables (the level of harm to each groups and when climate change will harm) (1). We also added the control variables to make sure any changes that are in the results are because of the variables that are being tested (the level of harm to each groups) and not something else (like education).
+The model I used was Ordinal Logistic Regression (OLR) since all of my important variables are ordered categorical variables. OLR is a statistical method that can predict the likelihood of an ordered categorical outcome (from low to high or not at all worried to very worried) based on independent variables (the level of harm to each groups and when climate change will harm) (Cheng Hua, 2021). We also added the control variables to make sure any changes that are in the results are because of the variables that are being tested (the level of harm to each groups) and not something else (like education).
 
 ### Previous Research
-Unfortunately, there is little to no research on perceived harm level for different groups or the belief of when climate change will start harming and how they affect worry. One study that pushed me to the idea to study harm level between different groups was one where they found people worried about their children facing the consequences of climate change but not themselves (4). I wanted to see if that held up with perceived harm levels for different groups (personal, US, future generations, and plants and animals). In regards of timing, there is a report that found that 39% of American respondents believed they were being affected by climate change right now  (3). Thus, I decided to investigate the association of timing with worry as well.
+Unfortunately, there is little to no research on perceived harm level for different groups or the belief of when climate change will start harming and how they affect worry. One study that pushed me to the idea to study harm level between different groups was one where they found people worried about their children facing the consequences of climate change but not themselves (Threadgold, 2012). I wanted to see if that held up with perceived harm levels for different groups (personal, US, future generations, and plants and animals). In regards of timing, there is a report that found that 39% of American respondents believed they were being affected by climate change right now  (Narawad and Julian Wettengel, 2024). Thus, I decided to investigate the association of timing with worry as well.
 
 Last December, I researched the same question: 'Why are some Americans more prone to worry about climate change?' with the same survey but from 2022. However, I was focusing on demographics (race, gender, and education) rather than perceived potential harm or the believed timing of when climate change will harm people in the US. In regards to education, I found Americans with a Bachelor's or higher were more likely to worry about climate change. For race, Black respondents were less likely to worry. Lastly, there was no difference in worry for men and women.
 
@@ -602,9 +597,11 @@ Column {data-width=300}
 -----------------------------------------------------------------------
 
 ### References
-(1) Cheng Hua, Dr.Youn-Jeng Choi. “Companion to BER 642: Advanced Regression Methods.” Chapter 12 Ordinal Logistic Regression, 29 Apr. 2021, bookdown.org/chua/ber642_advanced_regression/ordinal-logistic-regression.html. 
-(2) Lindsey, Rebecca, and Luann Dahlman. “Climate Change: Global Temperature.” NOAA Climate.Gov, 18 Jan. 2024, www.climate.gov/news-features/understanding-climate/climate-change-global-temperature. 
-(3) Narawad, Aniket, and Julian Wettengel. “Global Surveys Show People’s Growing Concern about Climate Change.” Clean Energy Wire, 12 Nov. 2024, www.cleanenergywire.org/factsheets/global-surveys-show-peoples-growing-concern-about-climate-change#:~:text=The%20group%20of%20countries%20surveyed,income%20are%20slightly%20more%20concerned. 
-(4) Threadgold, Steven. “‘I reckon my life will be easy, but my kids will be buggered’: Ambivalence in young people’s positive perceptions of individual futures and their visions of environmental collapse.” Journal of Youth Studies, vol. 15, no. 1, Feb. 2012, pp. 17–32, https://doi.org/10.1080/13676261.2011.618490. 
-(5) “What Is Climate Change?” United Nations, United Nations, www.un.org/en/climatechange/what-is-climate-change. Accessed 10 Dec. 2024. 
-(6) “Yale Climate Opinion Maps 2023.” Yale Program on Climate Change Communication, 10 December 2024.
+
+
+* Cheng Hua, Dr.Youn-Jeng Choi. “Companion to BER 642: Advanced Regression Methods.” Chapter 12 Ordinal Logistic Regression, 29 Apr. 2021, bookdown.org/chua/ber642_advanced_regression/ordinal-logistic-regression.html. 
+* Lindsey, Rebecca, and Luann Dahlman. “Climate Change: Global Temperature.” NOAA Climate.Gov, 18 Jan. 2024, www.climate.gov/news-features/understanding-climate/climate-change-global-temperature. 
+* Narawad, Aniket, and Julian Wettengel. “Global Surveys Show People’s Growing Concern about Climate Change.” Clean Energy Wire, 12 Nov. 2024, www.cleanenergywire.org/factsheets/global-surveys-show-peoples-growing-concern-about-climate-change#:~:text=The%20group%20of%20countries%20surveyed,income%20are%20slightly%20more%20concerned. 
+* Threadgold, Steven. “‘I reckon my life will be easy, but my kids will be buggered’: Ambivalence in young people’s positive perceptions of individual futures and their visions of environmental collapse.” Journal of Youth Studies, vol. 15, no. 1, Feb. 2012, pp. 17–32, https://doi.org/10.1080/13676261.2011.618490. 
+* “What Is Climate Change?” United Nations, United Nations, www.un.org/en/climatechange/what-is-climate-change. Accessed 10 Dec. 2024. 
+* “Yale Climate Opinion Maps 2023.” Yale Program on Climate Change Communication, 10 December 2024.
