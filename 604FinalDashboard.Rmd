@@ -352,9 +352,8 @@ m3 <- broom::tidy(fitwM3) %>% filter(term %in% c("harm_personallyA great deal",
 m3 <- m3 %>%
   mutate(p_value = 2 * (1 - pnorm(abs(estimate / std.error))),
     significance = case_when(
-      p_value < 0.01 ~ "***",
-      p_value < 0.05 ~ "**",
-      #p_value < 0.1 ~ "*",
+      p_value < 0.01 ~ "**",
+      p_value < 0.05 ~ "*",
       TRUE ~ ""  # "" for not significant
     )
   )
@@ -473,7 +472,8 @@ prob_personal_long$Worry <- factor(prob_personal_long$Worry,
                                    labels = c("Not at all worried", "Not very worried", "Somewhat worried", "Very worried"))
 
 prob_personal_long$harm_personally <- factor(prob_personal_long$harm_personally,
-                                   labels = c("Not at all", "Only a little", "A moderate amount", "A great deal"))
+                                   labels = c("No harm at all", "A little harm", "A moderate amount of harm",
+                                              "A great deal of harm"))
 
 #prob_personal_long
 
