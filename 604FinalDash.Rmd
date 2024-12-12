@@ -428,6 +428,15 @@ American respondents who were more likely to be worried about climate change wer
 The belief of harm level for people in the US, future generations, as well as plants and animals does not impact to the respondents worry level as was assumed. Additionally, the results for when people believed climate change was going to harm the US were somewhat surprising as well since 100 years was a predictor and 25 or 50 years was not.
 
 
+*Note:* 
+
+
+"*" represents a p-value of less than 0.5. 
+
+"**" represents a p-value of less than 0.01.
+
+p-values less than 0.5 represents that the variable is significant to impacting worry.
+
 # Findings
 
 Column {data-width=700}
