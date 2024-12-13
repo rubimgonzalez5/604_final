@@ -191,12 +191,12 @@ knitr::include_graphics("cc.jpg")
 
 **What did I study?**
 
-* Why are some individuals more prone to worry about climate change? Based on Perceived Harm to Different Groups and the Believed Timing of when Climate Change will Harm Americans
+* Why are some individuals more prone to worry about climate change? Based on the harm levels respondents believe different groups will face & when they think the harm will occur in the US.
 
 
 **Believed Outcomes**
 
-* I think the more an American believes climate change will harm living things at a more intense level, the more likely they are to worry about climate change at a higher level.
+* I think the more an American perceives climate change as causing significant harm to living things (personal self, the US, future generations, and plants and animals), the more likely they are to worry about it at a higher level.
 * I think that the timing of when Americans believe climate change start will harming the US will also affect their worry level. 
 
 **Intended Audience**
@@ -209,21 +209,21 @@ Column {data-width=450}
 
 ### Previous Research
 
-I previously researched the same question: 'Why are some Americans more prone to worry about climate change?' with the same survey. However, I was focusing on demographics rather than perceived potential harm or the believed timing of when climate change will harm the US.
+I previously researched the same question: 'Why are some Americans more prone to worry about climate change?' with the same survey. However, I was focusing on demographics rather than potential harm for different groups or the believed timing of harm.
 
-When I was trying to think about how I could improve my old project, there was a research finding that inspired me to look into harm level for different groups. They found people are worried about climate change because they believe their children will face the consequences but *not themselves* (Threadgold, 2012). I wanted to see if that conclusion held up with perceived harm levels for different groups (personal, US, future generations, and plants and animals). I was inspired to look into timing as well because there is a report that found that 39% of American respondents believed they were being affected by climate change right now  (Narawad and Julian Wettengel, 2024). Unfortunately, there is little to no research on perceived harm level for different groups and how they affect worry. Nor are there studies that focus on the possible link of worrying about climate change and the belief of when climate change will start harming people living the United States. From what I have gathered, I am the first to study such variables regarding climate change worry.
+When I was trying to think about how I could improve my old project, there was a research finding that inspired me to look into harm level for different groups. They found people are worried about climate change because they believe their children will face the consequences but *not themselves* (Threadgold, 2012). I wanted to see if that conclusion held up with perceived harm levels for different groups. I was inspired to look into timing as well because there is a report that found that 39% of American respondents believed they were being affected by climate change right now  (Narawad and Julian Wettengel, 2024). Unfortunately, there is little to no research on perceived harm level for different groups and how they affect worry. Nor are there studies that focus on the possible link of worrying about climate change and the belief of when climate change will start harming people living the United States. From what I have gathered, I am the first to study such variables regarding climate change worry.
 
 
 ### Dataset
 
-The data set I used to answer my question is from the Yale Program on [Climate Change Communication](https://climatecommunication.yale.edu/visualizations-data/americans-climate-views/), which is a **nationally representative survey** of U.S. adults. The survey I focused on was from October 2023 that contains 1,003 respondents. I used 10 variables from the survey to help with my study. My most important variables:
+The data set I used to answer my question is from the Yale Program on [Climate Change Communication](https://climatecommunication.yale.edu/visualizations-data/americans-climate-views/), which is a **nationally representative survey** of U.S. adults. The survey I focused on was from October 2023 that contains 1,003 respondents. I used 10 variables from the survey for my study. My most important variables:
 
 * Outcome: level of worry
 * Believed to effect worry levels (explanatory):
     * level of harm for four specific groups (personal, US, future generations, and plants and animals)
     * when climate change will begin to harm the US
 
-The model I used was Ordinal Logistic Regression since all of my important variables are ordered categorical variables (i.e. not at all worried, not very worried, somewhat worried, very worried) rather than continuous numbers (Cheng Hua, 2021). In my model, I also have to consider other factors that could influence the results by including them in my model. The variables are:
+I used was Ordinal Logistic Regression model because all of my important variables are ordered categorical variables (i.e. not at all worried, not very worried, somewhat worried, very worried) rather than continuous numbers (Cheng Hua, 2021). For my model, I also considered other factors that might influence worry levels and I did that by including them in my model. The variables are:
 
 * happening, caused by human activities, generation, and education.
 
@@ -444,7 +444,7 @@ Additionally, the results for when people believed climate change was going to h
 
 p-values less than 0.5 represents that the variable is significant to impacting worry.
 
-# Findings
+# Probability of Worry Levels
 
 Column {data-width=700}
 -----------------------------------------------------------------------
@@ -586,7 +586,7 @@ Column {data-width=300}
 ### Findings 
 As the personal harm levels intensify, the likelihood of respondents becoming increasingly worried (being in a higher level of worry) rises.
 
-When focusing on the timing of Right Now and 10 years, we can clearly see that respondents are more likely to fall into a higher worry level when compared to previous years. Something similar happened to the timing of 100 years as well. From Never to 100 years, we see that worry levels did increase!
+When focusing on the timing of right now and 10 years, we can clearly see that respondents are more likely to fall into a higher worry level when compared to previous years. Something similar happened to the timing of 100 years as well. From Never to 100 years, we see that worry levels did increase!
 
 # Conclusion
 
@@ -597,17 +597,16 @@ In conclusion, the results of this study were surprising. American respondents w
 
 Other groups that could potentially be harmed, such as people living in the US, future generations, and plants and animals did not have a strong impact on the respondents' worry levels as expected.
 
-Additionally, Americans who believe climate change is harming people living in the US right now, will do so within the next decade, or in 100 years, are more likely to worry about the issue. Originally, I thought that worry would gradually increase as the timeline shifted from 100 years to present day, but that was not the case!
+Additionally, timing of harm had impact as believed. Americans who believe climate change is harming the US right now, or within the next decade, or in 100 years, are more likely to worry about the issue. Originally, I thought that worry would gradually increase as the timeline shifted from 100 years to present day, but that was not the case!
 
-To further study both harm personally and when climate change will harm, I found the probabilities of the worry levels for each.
-I found as the personal harm level increased from "no harm at all" to "a great deal of harm", the probability of having in a higher worry level also increased. Moreover, I found that as the timing of harm became closer to present day, the probability of having a higher worry level did not necessarily have a gradual increase. The probability of having a higher worry level did increase as the timing of harm did become more present (from harming in 10 years to right now), however, there was also an increase of having a somewhat higher worry level from "never" to "100 years."
+To further investigate both personal harm and the timing of climate change impacts, I analyzed the probabilities of different worry levels for each. I found that as personal harm increased from "no harm at all" to "a great deal of harm," the probability of experiencing a higher worry level also increased. Additionally, while the probability of a higher worry level generally increased as the timing of harm shifted closer to the present (from "in 10 years" to "right now"), the change was not entirely gradual. Interestingly, there was also an increase in the likelihood of a somewhat higher worry level from "never" to "100 years."
 
 ### Looking Forward
 Overall, more research regarding the association of climate change perceived harms to different groups and worry needs to de done to try and replicate these findings.
 
 Next steps for this project would be to study if perceived personal harm and believed timing may lead someone to be more proactive about being eco-friendly in order to soothe their worries. Additionally, if so, does it actually help reduce their worry?
 
-I think it would also be interesting to know if someone has *already* been affected my climate change and at what level (not at all, only a little, a moderate amount or a great deal). I think the results would be interesting to explore with worry.
+I think it would also be interesting to know if someone has *already* been affected by climate change and at what level (not at all, only a little, a moderate amount or a great deal). I think the results would be interesting to explore with worry.
 
 Column {data-width=300}
 -----------------------------------------------------------------------
