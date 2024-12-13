@@ -223,9 +223,9 @@ The data set I used to answer my question is from the Yale Program on [Climate C
     * level of harm for four specific groups (personal, US, future generations, and plants and animals)
     * when climate change will begin to harm the US
 
-The model I used was Ordinal Logistic Regression since all of my important variables are ordered categorical variables (i.e. not at all worried, not very worried, somewhat worried, very worried) rather than continuous numbers (Cheng Hua, 2021). I also added the control variables to make sure any changes in the worry are due to the variables that are being tested (the level of harm) and not something else (like education).
+The model I used was Ordinal Logistic Regression since all of my important variables are ordered categorical variables (i.e. not at all worried, not very worried, somewhat worried, very worried) rather than continuous numbers (Cheng Hua, 2021). In my model, I also have to consider other factors that could influence the results by including them in my model. The variables are:
 
-* Control variables I used: happening, caused by human activities, generation, and education.
+* happening, caused by human activities, generation, and education.
 
 
 # Worry and Harms
