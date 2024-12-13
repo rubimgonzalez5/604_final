@@ -3,7 +3,7 @@ title: "Projects"
 ---
 
 ## Why are some individuals more prone to worry about climate change? Based on Perceived Harm and Believed Timing of Harm (604 Final Project)
-[Dashboard](files/604 Final Dash.html)
+[Dashboard](files/Rubi604FinalDash.html)
 
 ## 604 Assignment 4 - Simple Dashboard
 
